@@ -2,8 +2,8 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIRTUE SCHOOL - سیستم امنیتی</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>VIRTUE SCHOOL - موبایل</title>
     <style>
         * {
             margin: 0;
@@ -16,7 +16,7 @@
             background: #000;
             min-height: 100vh;
             color: #00ff00;
-            padding: 15px;
+            padding: 10px;
             position: relative;
             overflow-x: hidden;
         }
@@ -42,48 +42,54 @@
             100% { background-position: 0 20px; }
         }
 
-        /* کانتینر اصلی */
+        /* کانتینر اصلی - موبایل */
         .container {
             position: relative;
             z-index: 1;
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
             border: 2px solid #00ff00;
             border-radius: 15px;
-            padding: 20px;
+            padding: 12px;
             background: rgba(0,0,0,0.85);
             backdrop-filter: blur(5px);
-            box-shadow: 0 0 30px rgba(0,255,0,0.3);
+            box-shadow: 0 0 20px rgba(0,255,0,0.3);
         }
 
-        /* هدر */
+        /* هدر موبایل */
         .header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #00ff00;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #00ff00;
-            margin-bottom: 20px;
-            font-size: 1.2em;
+            flex-wrap: wrap;
         }
 
         .glitch {
+            font-size: 1.1em;
             animation: glitch 3s infinite;
         }
 
         @keyframes glitch {
-            0%, 100% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; }
-            25% { text-shadow: -2px 2px #ff0000, 2px -2px #0000ff; }
-            50% { text-shadow: 2px -2px #ff0000, -2px 2px #0000ff; }
-            75% { text-shadow: -2px -2px #ff0000, 2px 2px #0000ff; }
+            0%, 100% { text-shadow: 1px 1px #ff0000, -1px -1px #0000ff; }
+            25% { text-shadow: -1px 1px #ff0000, 1px -1px #0000ff; }
         }
 
         .status-led {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: #00ff00;
             border-radius: 50%;
-            box-shadow: 0 0 15px #00ff00;
+            box-shadow: 0 0 10px #00ff00;
             animation: ledBlink 1.5s infinite;
         }
 
@@ -97,63 +103,63 @@
             background: transparent;
             border: 2px solid #00ff00;
             color: #00ff00;
-            padding: 10px 25px;
-            font-size: 1.2em;
+            padding: 8px 15px;
+            font-size: 1em;
             cursor: pointer;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             transition: all 0.3s;
-            font-family: 'Courier New', monospace;
+            width: 100%;
         }
 
         .back-btn:hover {
             background: #00ff00;
             color: #000;
-            box-shadow: 0 0 20px #00ff00;
         }
 
-        /* گرید اصلی */
+        /* گرید موبایل - تک ستون */
         .main-grid {
             display: grid;
-            grid-template-columns: 300px 1fr 350px;
-            gap: 20px;
-            margin-bottom: 20px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         /* پنل مشترک */
         .panel {
             border: 1px solid #00ff00;
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 12px;
+            padding: 12px;
             background: rgba(0,20,0,0.7);
             backdrop-filter: blur(3px);
-            height: fit-content;
         }
 
         .panel-title {
             color: #00ff00;
             border-bottom: 1px dashed #00ff00;
             padding-bottom: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             font-weight: bold;
+            font-size: 0.95em;
         }
 
-        /* پنل سیستم */
+        /* پنل سیستم - موبایل */
         .stat-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 6px 0;
             border-bottom: 1px dotted #003300;
+            font-size: 0.9em;
         }
 
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 4px;
             background: #003300;
-            margin: 5px 0 15px;
-            border-radius: 3px;
+            margin: 3px 0 10px;
+            border-radius: 2px;
             overflow: hidden;
         }
 
@@ -161,57 +167,50 @@
             height: 100%;
             width: var(--progress);
             background: #00ff00;
-            box-shadow: 0 0 10px #00ff00;
-            animation: progressPulse 2s infinite;
+            box-shadow: 0 0 5px #00ff00;
         }
 
-        @keyframes progressPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        /* پوشه‌ها */
+        /* پوشه‌ها - موبایل */
         .folders-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
 
         .folder {
             border: 1px solid #00ff00;
             border-radius: 8px;
-            padding: 15px 10px;
+            padding: 10px 5px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
             background: rgba(0,30,0,0.5);
+            font-size: 0.85em;
         }
 
         .folder:hover {
             background: #00ff00;
             color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px #00ff00;
         }
 
         .folder-icon {
-            font-size: 2em;
-            margin-bottom: 8px;
+            font-size: 1.5em;
+            margin-bottom: 5px;
         }
 
-        /* ماینر */
+        /* ماینر - موبایل */
         .btc-display {
             text-align: center;
-            padding: 15px;
+            padding: 10px;
             border: 1px solid #00ff00;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .btc-amount {
-            font-size: 2.5em;
+            font-size: 1.8em;
             color: #ffd700;
-            text-shadow: 0 0 15px #ffd700;
+            text-shadow: 0 0 10px #ffd700;
             font-weight: bold;
         }
 
@@ -219,22 +218,21 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            height: 100px;
-            margin: 15px 0;
+            height: 60px;
+            margin: 10px 0;
             gap: 2px;
         }
 
         .graph-bar {
             flex: 1;
             background: #00ff00;
-            height: calc(var(--height) * 1px);
-            min-height: 10px;
-            animation: barGlow 1.5s infinite;
+            height: calc(var(--height) * 0.7px);
+            min-height: 5px;
         }
 
-        @keyframes barGlow {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; box-shadow: 0 0 10px #00ff00; }
+        .hash-rate {
+            font-size: 0.9em;
+            text-align: center;
         }
 
         /* دکمه‌ها */
@@ -242,28 +240,22 @@
             background: transparent;
             border: 1px solid #00ff00;
             color: #00ff00;
-            padding: 10px;
+            padding: 8px;
             cursor: pointer;
             font-family: 'Courier New', monospace;
             border-radius: 5px;
-            transition: all 0.3s;
             width: 100%;
-            margin: 5px 0;
-        }
-
-        .btn:hover {
-            background: #00ff00;
-            color: #000;
-            box-shadow: 0 0 20px #00ff00;
+            margin: 3px 0;
+            font-size: 0.9em;
         }
 
         /* محتوای پنل پایین */
         .content-panel {
             border: 1px solid #00ff00;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            min-height: 250px;
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 12px;
+            min-height: 200px;
             background: rgba(0,20,0,0.7);
         }
 
@@ -271,274 +263,170 @@
         .student-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .student-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
+            padding: 10px;
             border: 1px solid #00ff00;
             cursor: pointer;
-            transition: all 0.3s;
             background: rgba(0,30,0,0.3);
-        }
-
-        .student-item:hover {
-            background: #00ff00;
-            color: #000;
-            transform: translateX(5px);
-        }
-
-        .student-name {
-            font-size: 1.2em;
-            font-weight: bold;
+            font-size: 0.9em;
+            border-radius: 6px;
         }
 
         .student-badge {
             background: #ff0000;
             color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
         }
 
         .student-detail {
             background: rgba(0,50,0,0.5);
             border: 1px solid #00ff00;
-            padding: 20px;
-            margin-top: 15px;
+            padding: 12px;
+            margin-top: 10px;
             border-radius: 8px;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            font-size: 0.9em;
         }
 
         /* لیست تراکنش‌ها */
         .transaction-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .transaction-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
+            padding: 10px;
             border: 1px solid #ffd700;
             background: rgba(255,215,0,0.1);
-        }
-
-        .transaction-name {
-            font-size: 1.1em;
-            color: #ffd700;
-        }
-
-        .transaction-amount {
-            font-weight: bold;
-            color: #00ff00;
+            border-radius: 6px;
+            font-size: 0.9em;
         }
 
         /* تاریخچه معلمان */
         .history-item {
             border: 1px solid #00ff00;
-            padding: 15px;
-            margin: 10px 0;
+            padding: 10px;
+            margin: 8px 0;
             background: rgba(0,30,0,0.5);
+            border-radius: 6px;
+            font-size: 0.9em;
         }
 
         .history-title {
             color: #ff0000;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        .history-text {
-            line-height: 1.8;
-            color: #00ff00;
+            font-size: 1.1em;
+            margin-bottom: 8px;
         }
 
         /* رمز وای فای */
         .wifi-box {
             background: rgba(0,50,0,0.5);
             border: 2px solid #00ff00;
-            padding: 25px;
+            padding: 15px;
             text-align: center;
-            margin: 20px 0;
+            margin: 10px 0;
+            border-radius: 10px;
         }
 
         .wifi-password {
-            font-size: 3em;
-            color: #ffd700;
-            letter-spacing: 5px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-        }
-
-        /* مودال رمز تاریخچه */
-        .password-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .password-modal.visible {
-            display: flex;
-        }
-
-        .password-content {
-            border: 2px solid #00ff00;
-            padding: 30px;
-            background: #000;
-            width: 400px;
-            text-align: center;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 15px;
-            background: #000;
-            border: 1px solid #00ff00;
-            color: #00ff00;
-            font-size: 1.5em;
-            text-align: center;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            direction: ltr;
-        }
-
-        .password-keypad {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
-            margin: 15px 0;
-        }
-
-        .hint-box {
-            background: rgba(255,255,0,0.1);
-            border: 1px solid #ffd700;
-            padding: 10px;
-            margin: 10px 0;
-            color: #ffd700;
-        }
-
-        /* مودال هک گوشی */
-        .hack-phone-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hack-phone-modal.visible {
-            display: flex;
-        }
-
-        .hack-phone-content {
-            border: 2px solid #00ff00;
-            padding: 30px;
-            background: #000;
-            width: 400px;
-            text-align: center;
-        }
-
-        .hack-attempt {
-            color: #ff0000;
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-
-        /* مودال هک نهایی */
-        .hack-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hack-modal.visible {
-            display: flex;
-        }
-
-        .hack-content {
-            border: 3px solid #ff0000;
-            padding: 40px;
-            text-align: center;
-            background: #000;
-            max-width: 500px;
-            width: 90%;
-            animation: hackPop 0.3s;
-        }
-
-        @keyframes hackPop {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
-
-        .hack-title {
-            font-size: 2.5em;
-            color: #ff0000;
-            margin: 20px 0;
-            animation: shake 0.3s infinite;
-        }
-
-        .hack-image {
-            font-size: 6em;
-            margin: 20px 0;
-            animation: spin 2s infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(10deg); }
-            75% { transform: rotate(-10deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        .hack-message {
             font-size: 2em;
-            color: #ff0000;
-            margin: 20px 0;
+            color: #ffd700;
+            letter-spacing: 3px;
+            margin: 10px 0;
+            word-break: break-all;
         }
 
-        .countdown-box {
-            font-size: 4em;
+        /* اطلاعات هسته‌ای */
+        .nuclear-box {
+            background: rgba(255,0,0,0.1);
+            border: 2px solid #ff0000;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .nuclear-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .nuclear-item {
+            background: rgba(255,0,0,0.2);
+            border: 1px solid #ff0000;
+            padding: 8px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        .nuclear-value {
+            font-size: 1.5em;
             color: #ff0000;
             font-weight: bold;
-            margin: 20px 0;
-            animation: countdownBlink 1s infinite;
         }
 
-        @keyframes countdownBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        /* درآمد مدرسه */
+        .income-box {
+            background: rgba(0,255,0,0.1);
+            border: 2px solid #ffd700;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            border-radius: 10px;
         }
 
-        /* مودال برداشت */
+        .income-number {
+            font-size: 2em;
+            color: #ffd700;
+            margin: 8px 0;
+            word-break: break-all;
+        }
+
+        .balance-number {
+            font-size: 1.8em;
+            color: #00ff00;
+            margin: 8px 0;
+            word-break: break-all;
+        }
+
+        .currency-toggle {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .currency-btn {
+            background: transparent;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .currency-btn.active {
+            background: #00ff00;
+            color: #000;
+        }
+
+        /* مودال‌ها - بهینه شده برای موبایل */
+        .password-modal,
+        .hack-phone-modal,
+        .hack-modal,
         .withdraw-modal {
             position: fixed;
             top: 0;
@@ -550,45 +438,66 @@
             display: none;
             justify-content: center;
             align-items: center;
+            padding: 10px;
         }
 
+        .password-modal.visible,
+        .hack-phone-modal.visible,
+        .hack-modal.visible,
         .withdraw-modal.visible {
             display: flex;
         }
 
+        .password-content,
+        .hack-phone-content,
         .withdraw-content {
             border: 2px solid #00ff00;
-            padding: 30px;
+            padding: 20px 15px;
             background: #000;
-            width: 400px;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 15px;
         }
 
-        .withdraw-input {
+        .hack-content {
+            border: 3px solid #ff0000;
+            padding: 25px 15px;
+            background: #000;
             width: 100%;
-            padding: 15px;
+            max-width: 350px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px;
             background: #000;
             border: 1px solid #00ff00;
             color: #00ff00;
-            font-size: 1.5em;
+            font-size: 1.3em;
             text-align: center;
-            margin: 20px 0;
+            margin: 15px 0;
             font-family: 'Courier New', monospace;
+            border-radius: 8px;
         }
 
+        .password-keypad,
         .keypad {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 5px;
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
         .keypad-btn {
             background: #000;
             border: 1px solid #00ff00;
             color: #00ff00;
-            padding: 15px;
-            font-size: 1.3em;
+            padding: 12px 5px;
+            font-size: 1.2em;
             cursor: pointer;
+            border-radius: 8px;
         }
 
         .keypad-btn:hover {
@@ -596,151 +505,73 @@
             color: #000;
         }
 
-        /* اطلاعات هسته‌ای */
-        .nuclear-box {
-            background: rgba(255,0,0,0.1);
-            border: 2px solid #ff0000;
-            padding: 20px;
-            margin: 15px 0;
-        }
-
-        .nuclear-title {
+        .hack-attempt {
             color: #ff0000;
-            font-size: 1.5em;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .nuclear-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .nuclear-item {
-            background: rgba(255,0,0,0.2);
-            border: 1px solid #ff0000;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .nuclear-value {
-            font-size: 2em;
-            color: #ff0000;
-            font-weight: bold;
-        }
-
-        /* درآمد مدرسه */
-        .income-box {
-            background: rgba(0,255,0,0.1);
-            border: 2px solid #ffd700;
-            padding: 20px;
-            margin: 15px 0;
-            text-align: center;
-        }
-
-        .income-title {
-            color: #ffd700;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-        }
-
-        .income-number {
-            font-size: 3em;
-            color: #ffd700;
-            font-family: 'Courier New', monospace;
-            margin: 10px 0;
-            animation: incomePulse 2s infinite;
-        }
-
-        @keyframes incomePulse {
-            0%, 100% { text-shadow: 0 0 10px #ffd700; }
-            50% { text-shadow: 0 0 30px #ffd700; }
-        }
-
-        .balance-number {
-            font-size: 2.5em;
-            color: #00ff00;
-            margin: 10px 0;
-        }
-
-        .income-source {
-            background: rgba(255,0,0,0.2);
-            border: 1px solid #ff0000;
-            padding: 15px;
-            margin-top: 15px;
-            color: #ff0000;
-            font-size: 1.2em;
-            animation: sourcePulse 1s infinite;
-        }
-
-        @keyframes sourcePulse {
-            0%, 100% { background: rgba(255,0,0,0.2); }
-            50% { background: rgba(255,0,0,0.4); }
-        }
-
-        .currency-toggle {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 15px 0;
-        }
-
-        .currency-btn {
-            background: transparent;
-            border: 1px solid #00ff00;
-            color: #00ff00;
-            padding: 8px 20px;
-            cursor: pointer;
-            border-radius: 5px;
+            margin: 8px 0;
             font-size: 1em;
         }
 
-        .currency-btn.active {
-            background: #00ff00;
-            color: #000;
+        .hack-title {
+            font-size: 1.8em;
+            color: #ff0000;
+            margin: 15px 0;
+        }
+
+        .hack-image {
+            font-size: 4em;
+            margin: 15px 0;
+        }
+
+        .countdown-box {
+            font-size: 3em;
+            color: #ff0000;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .hint-box {
+            background: rgba(255,255,0,0.1);
+            border: 1px solid #ffd700;
+            padding: 8px;
+            margin: 8px 0;
+            color: #ffd700;
+            border-radius: 6px;
+            font-size: 0.9em;
         }
 
         /* انیمیشن‌ها */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .blink {
             animation: blink 1s infinite;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
         .hint-text {
             color: #00ff00;
-            font-size: 0.9em;
-            margin-top: 10px;
+            font-size: 0.8em;
+            margin-top: 8px;
             opacity: 0.7;
         }
 
         .danger-text {
             color: #ff0000;
-            font-size: 1.2em;
-            margin-top: 10px;
+            font-size: 1em;
+            margin-top: 8px;
             animation: dangerPulse 1s infinite;
         }
 
         @keyframes dangerPulse {
-            0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
-            50% { opacity: 0.7; text-shadow: 0 0 20px #ff0000; }
+            0%, 100% { opacity: 1; text-shadow: 0 0 5px #ff0000; }
+            50% { opacity: 0.7; }
         }
 
         .success-text {
             color: #00ff00;
-            font-size: 1.2em;
-            margin-top: 10px;
+            font-size: 1em;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -748,22 +579,24 @@
     <div class="matrix-bg"></div>
 
     <div class="container">
-        <!-- هدر با دکمه بازگشت -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <button class="back-btn" onclick="goToMainPage()">🔙 بازگشت به صفحه اصلی</button>
-            <div class="glitch">🔒 VIRTUE SCHOOL SECURITY v2.0</div>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <span>SYSTEM ONLINE</span>
-                <div class="status-led"></div>
+        <!-- هدر موبایل -->
+        <div class="header">
+            <div class="header-top">
+                <div class="glitch">🔒 VIRTUE SCHOOL</div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 0.8em;">ONLINE</span>
+                    <div class="status-led"></div>
+                </div>
             </div>
+            <button class="back-btn" onclick="goToMainPage()">🔙 بازگشت به صفحه اصلی</button>
         </div>
 
-        <!-- گرید اصلی -->
+        <!-- گرید موبایل -->
         <div class="main-grid">
-            <!-- پنل چپ - سیستم -->
+            <!-- پنل سیستم -->
             <div class="panel">
                 <div class="panel-title">
-                    <span>⚙️ SYSTEM INFO</span>
+                    <span>⚙️ SYSTEM</span>
                     <span>ROOT</span>
                 </div>
                 
@@ -784,7 +617,7 @@
                 </div>
                 
                 <div class="stat-row">
-                    <span>NETWORK:</span>
+                    <span>NET:</span>
                     <span id="network">92%</span>
                 </div>
                 <div class="progress-bar">
@@ -802,42 +635,37 @@
                 </div>
                 
                 <div class="stat-row">
-                    <span>CONNECTIONS:</span>
-                    <span id="connections">1,337</span>
-                </div>
-                
-                <div class="stat-row">
                     <span>UPTIME:</span>
                     <span id="uptime">03:47:22</span>
                 </div>
             </div>
 
-            <!-- پنل وسط - پوشه‌ها -->
+            <!-- پنل پوشه‌ها -->
             <div class="panel">
                 <div class="panel-title">
-                    <span>📁 SECURE FOLDERS</span>
-                    <span>TOP SECRET</span>
+                    <span>📁 FOLDERS</span>
+                    <span>SECRET</span>
                 </div>
                 
                 <div class="folders-grid">
                     <div class="folder" onclick="showStudents()">
                         <div class="folder-icon">👤</div>
-                        <div>دانش‌آموزان شورشی</div>
+                        <div>شورشیان</div>
                     </div>
                     
                     <div class="folder" onclick="showTeachers()">
                         <div class="folder-icon">🕵️</div>
-                        <div>معلم‌های جاسوس</div>
+                        <div>جاسوسان</div>
                     </div>
                     
                     <div class="folder" onclick="showHistoryPassword()">
                         <div class="folder-icon">📜</div>
-                        <div>تاریخچه سوابق معلمان</div>
+                        <div>تاریخچه</div>
                     </div>
                     
                     <div class="folder" onclick="showHackPhone()">
                         <div class="folder-icon">📱</div>
-                        <div>هک کردن گوشی شیرکوند</div>
+                        <div>هک شیرکوند</div>
                     </div>
                     
                     <div class="folder" onclick="showTransactions()">
@@ -847,22 +675,22 @@
                     
                     <div class="folder" onclick="showWifiPassword()">
                         <div class="folder-icon">📶</div>
-                        <div>رمز وایفای فضیلت</div>
+                        <div>وایفای</div>
                     </div>
                     
                     <div class="folder" onclick="showNuclearScientists()">
                         <div class="folder-icon">☢️</div>
-                        <div>دانشمندان هسته‌ای</div>
+                        <div>هسته‌ای</div>
                     </div>
                     
                     <div class="folder" onclick="showSchoolIncome()">
                         <div class="folder-icon">💵</div>
-                        <div>درآمد مدرسه</div>
+                        <div>درآمد</div>
                     </div>
                 </div>
             </div>
 
-            <!-- پنل راست - ماینر -->
+            <!-- پنل ماینر -->
             <div class="panel">
                 <div class="panel-title">
                     <span>⛏️ BTC MINER</span>
@@ -871,7 +699,7 @@
                 
                 <div class="btc-display">
                     <div class="btc-amount" id="btcAmount">0.00847</div>
-                    <div>≈ $523.42 USD</div>
+                    <div style="font-size: 0.8em;">≈ $523 USD</div>
                 </div>
                 
                 <div class="miner-graph" id="minerGraph">
@@ -887,8 +715,8 @@
                     <div class="graph-bar" style="--height: 68"></div>
                 </div>
                 
-                <div style="text-align: center; margin: 10px 0;">
-                    <div>Hash Rate: <span id="hashRate">245.7</span> TH/s</div>
+                <div class="hash-rate">
+                    Hash: <span id="hashRate">245.7</span> TH/s
                 </div>
                 
                 <div style="display: flex; gap: 5px;">
@@ -896,14 +724,14 @@
                     <button class="btn" onclick="stopMining()">⏹ STOP</button>
                 </div>
                 
-                <button class="btn" onclick="showWithdraw()" style="margin-top: 10px; border-color: #ffd700; color: #ffd700;">💰 برداشت</button>
+                <button class="btn" onclick="showWithdraw()" style="margin-top: 8px; border-color: #ffd700; color: #ffd700;">💰 برداشت</button>
             </div>
         </div>
 
         <!-- پنل محتوا -->
         <div class="content-panel" id="contentPanel">
-            <div style="text-align: center; padding: 40px; color: #00ff00;">
-                📁 روی یک پوشه کلیک کنید<br>
+            <div style="text-align: center; padding: 20px; color: #00ff00; font-size: 0.9em;">
+                📁 روی پوشه کلیک کنید<br>
                 <span class="blink">_</span>
             </div>
         </div>
@@ -912,10 +740,8 @@
     <!-- مودال رمز تاریخچه -->
     <div class="password-modal" id="passwordModal">
         <div class="password-content">
-            <h2 style="margin-bottom: 20px;">🔐 رمز سوابق معلمان</h2>
-            <div class="hint-box">
-                ⚠️ راهنمایی: رمز وایفای رو وارد کن
-            </div>
+            <h2 style="margin-bottom: 15px; font-size: 1.3em;">🔐 رمز تاریخچه</h2>
+            <div class="hint-box">⚠️ رمز وایفای رو وارد کن</div>
             <input type="text" class="password-input" id="passwordInput" maxlength="8" placeholder="_ _ _ _ _ _ _ _" readonly>
             
             <div class="password-keypad">
@@ -933,15 +759,15 @@
                 <button class="keypad-btn" onclick="checkPassword()">✓</button>
             </div>
             
-            <div style="margin-top: 15px; color: #ff0000;" id="passwordMessage"></div>
+            <div style="margin-top: 10px; color: #ff0000;" id="passwordMessage"></div>
         </div>
     </div>
 
-    <!-- مودال هک گوشی -->
+    <!-- مودال هک گوشی - بهینه شده برای موبایل -->
     <div class="hack-phone-modal" id="hackPhoneModal">
         <div class="hack-phone-content">
-            <h2 style="margin-bottom: 20px;">📱 هک کردن گوشی شیرکوند</h2>
-            <div style="margin-bottom: 10px;">برای هک کردن گوشی، رمز رو وارد کن:</div>
+            <h2 style="margin-bottom: 15px; font-size: 1.3em;">📱 هک گوشی شیرکوند</h2>
+            <div style="margin-bottom: 10px; font-size: 0.9em;">رمز ۴ رقمی رو وارد کن:</div>
             <input type="text" class="password-input" id="hackPhoneInput" maxlength="4" placeholder="_ _ _ _" readonly>
             
             <div class="password-keypad">
@@ -960,7 +786,7 @@
             </div>
             
             <div class="hack-attempt" id="hackAttempt">تلاش: 0/2</div>
-            <div style="margin-top: 15px; color: #ff0000;" id="hackMessage"></div>
+            <div style="margin-top: 10px; color: #ff0000;" id="hackMessage"></div>
         </div>
     </div>
 
@@ -969,22 +795,22 @@
         <div class="hack-content">
             <div class="hack-image">👊</div>
             <div class="hack-title">خاک تو سرت!</div>
-            <div class="hack-message">رمز اشتباه بود!</div>
+            <div class="hack-message" style="font-size: 1.3em;">رمز اشتباه بود!</div>
             <div class="countdown-box" id="countdown">26</div>
-            <div style="font-size: 1.5em; color: #ff0000; margin: 20px;">تا صفر شدن حساب‌هات</div>
-            <div style="color: #ff0000; font-size: 2em; margin: 20px;">توسط شیرکوند هک شدی!</div>
-            <button class="btn" onclick="closeHack()" style="margin-top: 30px; border-color: #ff0000; color: #ff0000;">باشه قبول!</button>
+            <div style="font-size: 1.1em; color: #ff0000; margin: 15px;">تا صفر شدن حساب‌هات</div>
+            <div style="color: #ff0000; font-size: 1.4em; margin: 15px;">توسط شیرکوند هک شدی!</div>
+            <button class="btn" onclick="closeHack()" style="border-color: #ff0000; color: #ff0000;">باشه قبول!</button>
         </div>
     </div>
 
     <!-- مودال برداشت -->
     <div class="withdraw-modal" id="withdrawModal">
         <div class="withdraw-content">
-            <h2 style="text-align: center; margin-bottom: 20px;">💰 برداشت بیت‌کوین</h2>
-            <div style="text-align: center; margin-bottom: 10px;">شماره کارت ۱۲ رقم:</div>
+            <h2 style="text-align: center; margin-bottom: 15px; font-size: 1.3em;">💰 برداشت بیت‌کوین</h2>
+            <div style="text-align: center; margin-bottom: 8px; font-size: 0.9em;">شماره کارت ۱۲ رقم:</div>
             <input type="text" class="withdraw-input" id="cardNumber" maxlength="12" placeholder="_ _ _ _ _ _ _ _ _ _ _ _" readonly>
             
-            <div class="keypad" id="keypad">
+            <div class="keypad">
                 <button class="keypad-btn" onclick="addNumber(1)">1</button>
                 <button class="keypad-btn" onclick="addNumber(2)">2</button>
                 <button class="keypad-btn" onclick="addNumber(3)">3</button>
@@ -999,7 +825,7 @@
                 <button class="keypad-btn" onclick="submitWithdraw()">✓</button>
             </div>
             
-            <div style="text-align: center; margin-top: 20px;" id="withdrawMessage"></div>
+            <div style="text-align: center; margin-top: 15px;" id="withdrawMessage"></div>
         </div>
     </div>
 
@@ -1015,6 +841,8 @@
         let schoolIncome = 125630555;
         let schoolBalance = 754259204;
         let showDollar = false;
+        let incomeInterval;
+        let miningInterval;
 
         // آپدیت آمار سیستم
         setInterval(() => {
@@ -1022,7 +850,6 @@
             document.getElementById('ram').textContent = Math.floor(Math.random() * 30 + 50) + '%';
             document.getElementById('network').textContent = Math.floor(Math.random() * 20 + 80) + '%';
             document.getElementById('temp').textContent = Math.floor(Math.random() * 20 + 65) + '°C';
-            document.getElementById('connections').textContent = Math.floor(Math.random() * 500 + 1000);
             
             if(Math.random() > 0.7) {
                 document.getElementById('ip').textContent = 
@@ -1032,29 +859,29 @@
             // آپدیت uptime
             const uptimeEl = document.getElementById('uptime');
             const time = uptimeEl.textContent.split(':');
-            let h = parseInt(time[0]), m = parseInt(time[1]), s = parseInt(time[2]);
+            let h = parseInt(time[0]) || 0, m = parseInt(time[1]) || 0, s = parseInt(time[2]) || 0;
             s++;
             if(s >= 60) { s = 0; m++; }
             if(m >= 60) { m = 0; h++; }
             uptimeEl.textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
             
             // افزایش درآمد مدرسه
-            schoolIncome += Math.floor(Math.random() * 10000) + 5000;
-            schoolBalance += Math.floor(Math.random() * 20000) + 10000;
+            schoolIncome += Math.floor(Math.random() * 5000) + 2000;
+            schoolBalance += Math.floor(Math.random() * 10000) + 5000;
         }, 1000);
 
         // ماینر
-        setInterval(() => {
+        miningInterval = setInterval(() => {
             if(mining) {
-                btcBalance += (Math.random() * 0.00005) + 0.00001;
+                btcBalance += (Math.random() * 0.00003) + 0.000005;
                 document.getElementById('btcAmount').textContent = btcBalance.toFixed(5);
                 
                 const bars = document.querySelectorAll('.graph-bar');
                 bars.forEach(bar => {
-                    bar.style.height = (Math.random() * 80 + 20) + 'px';
+                    bar.style.height = (Math.random() * 50 + 15) + 'px';
                 });
                 
-                document.getElementById('hashRate').textContent = (Math.random() * 100 + 200).toFixed(1);
+                document.getElementById('hashRate').textContent = (Math.random() * 50 + 200).toFixed(1);
             }
         }, 1500);
 
@@ -1064,8 +891,8 @@
         // بازگشت به صفحه اصلی
         function goToMainPage() {
             document.getElementById('contentPanel').innerHTML = `
-                <div style="text-align: center; padding: 40px; color: #00ff00;">
-                    📁 روی یک پوشه کلیک کنید<br>
+                <div style="text-align: center; padding: 30px; color: #00ff00; font-size: 0.9em;">
+                    📁 روی پوشه کلیک کنید<br>
                     <span class="blink">_</span>
                 </div>
             `;
@@ -1074,26 +901,26 @@
         // نمایش دانش‌آموزان
         function showStudents() {
             document.getElementById('contentPanel').innerHTML = `
-                <div class="panel-title" style="margin-bottom: 15px;">👤 دانش‌آموزان شورشی تحت تعقیب</div>
+                <div class="panel-title" style="margin-bottom: 10px;">👤 دانش‌آموزان شورشی</div>
                 <div class="student-list">
                     <div class="student-item" onclick='showStudentDetail("ایلیا گرجی", "۹۰۴")'>
-                        <span class="student-name">ایلیا گرجی</span>
+                        <span>ایلیا گرجی</span>
                         <span class="student-badge">تحت تعقیب</span>
                     </div>
                     <div class="student-item" onclick='showStudentDetail("امیرمحمد لندرانی", "۹۰۳")'>
-                        <span class="student-name">امیرمحمد لندرانی</span>
+                        <span>امیرمحمد لندرانی</span>
                         <span class="student-badge">تحت تعقیب</span>
                     </div>
                     <div class="student-item" onclick='showStudentDetail("امیرحسین عیوضی", "۹۰۳")'>
-                        <span class="student-name">امیرحسین عیوضی</span>
+                        <span>امیرحسین عیوضی</span>
                         <span class="student-badge">تحت تعقیب</span>
                     </div>
                     <div class="student-item" onclick='showStudentDetail("حسام زمانی", "۹۰۱")'>
-                        <span class="student-name">حسام زمانی</span>
+                        <span>حسام زمانی</span>
                         <span class="student-badge">تحت تعقیب</span>
                     </div>
                 </div>
-                <div class="hint-text">برای دیدن جزئیات روی اسم کلیک کنید</div>
+                <div class="hint-text">روی اسم کلیک کن</div>
                 <div id="studentDetail"></div>
             `;
         }
@@ -1101,8 +928,8 @@
         function showStudentDetail(name, classNum) {
             document.getElementById('studentDetail').innerHTML = `
                 <div class="student-detail">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span>👤 نام: ${name}</span>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span>👤 ${name}</span>
                         <span class="student-badge">تحت تعقیب</span>
                     </div>
                     <div>📚 کلاس: ${classNum}</div>
@@ -1114,18 +941,18 @@
         // نمایش معلم‌ها
         function showTeachers() {
             document.getElementById('contentPanel').innerHTML = `
-                <div class="panel-title" style="margin-bottom: 15px;">🕵️ معلم‌های جاسوس</div>
+                <div class="panel-title" style="margin-bottom: 10px;">🕵️ معلم‌های جاسوس</div>
                 <div class="student-list">
                     <div class="student-item">
-                        <span class="student-name">آقای آبنیکی</span>
+                        <span>آقای آبنیکی</span>
                         <span style="color: #00ff00;">جاسوس</span>
                     </div>
                     <div class="student-item">
-                        <span class="student-name">آقای سلمانی</span>
+                        <span>آقای سلمانی</span>
                         <span style="color: #00ff00;">جاسوس</span>
                     </div>
                     <div class="student-item">
-                        <span class="student-name">آقای اژدریان</span>
+                        <span>آقای اژدریان</span>
                         <span style="color: #00ff00;">جاسوس</span>
                     </div>
                 </div>
@@ -1135,12 +962,11 @@
         // نمایش رمز وایفای
         function showWifiPassword() {
             document.getElementById('contentPanel').innerHTML = `
-                <div class="panel-title" style="margin-bottom: 15px;">📶 رمز وایفای فضیلت</div>
+                <div class="panel-title" style="margin-bottom: 10px;">📶 رمز وایفای فضیلت</div>
                 <div class="wifi-box">
-                    <div style="font-size: 1.5em; margin-bottom: 10px;">شبکه: Virture_School</div>
+                    <div style="font-size: 1.2em; margin-bottom: 5px;">شبکه: Virture_School</div>
                     <div class="wifi-password">16131346</div>
-                    <div style="margin-top: 20px; color: #ffd700;">نکته: این رمز ماهی یکبار عوض میشه</div>
-                    <div style="margin-top: 10px;">برای اتصال به وایفای مدرسه از این رمز استفاده کن</div>
+                    <div style="margin-top: 10px; color: #ffd700; font-size: 0.8em;">ماهی یکبار عوض میشه</div>
                 </div>
             `;
         }
@@ -1148,63 +974,60 @@
         // نمایش دانشمندان هسته‌ای
         function showNuclearScientists() {
             document.getElementById('contentPanel').innerHTML = `
-                <div class="panel-title" style="margin-bottom: 15px;">☢️ دانشمندان هسته‌ای در معرض ترور</div>
+                <div class="panel-title" style="margin-bottom: 10px;">☢️ دانشمندان هسته‌ای</div>
                 
                 <div class="student-list">
                     <div class="student-item" style="border-color: #ff0000;">
-                        <span class="student-name">یک ارین اریج</span>
-                        <span>کلاس ۹۰۳</span>
+                        <span>یک ارین اریج</span>
+                        <span>۹۰۳</span>
                     </div>
                     <div class="student-item" style="border-color: #ff0000;">
-                        <span class="student-name">امیرحسین پوینده</span>
-                        <span>کلاس ۹۰۳</span>
+                        <span>امیرحسین پوینده</span>
+                        <span>۹۰۳</span>
                     </div>
                     <div class="student-item" style="border-color: #ff0000;">
-                        <span class="student-name">امیرعلی بختیاری</span>
-                        <span>کلاس ۹۰۵</span>
+                        <span>امیرعلی بختیاری</span>
+                        <span>۹۰۵</span>
                     </div>
                     <div class="student-item" style="border-color: #ff0000;">
-                        <span class="student-name">ابتین کوشکی</span>
-                        <span>کلاس ۹۰۳</span>
+                        <span>ابتین کوشکی</span>
+                        <span>۹۰۳</span>
                     </div>
                 </div>
 
                 <div class="nuclear-box">
-                    <div class="nuclear-title">📊 اطلاعات محرمانه هسته‌ای</div>
-                    
                     <div class="nuclear-stats">
                         <div class="nuclear-item">
-                            <div>تعداد بمب هسته‌ای</div>
+                            <div style="font-size: 0.8em;">تعداد بمب</div>
                             <div class="nuclear-value">۳</div>
                         </div>
                         <div class="nuclear-item">
-                            <div>وزن اورانیوم</div>
-                            <div class="nuclear-value">۹۸۱ کیلو</div>
+                            <div style="font-size: 0.8em;">اورانیوم</div>
+                            <div class="nuclear-value">۹۸۱kg</div>
                         </div>
                     </div>
                     
-                    <div style="text-align: center; margin: 15px 0;">
-                        <div>درصد غنی‌سازی</div>
-                        <div style="font-size: 2.5em; color: #ff0000;">۸۵٪</div>
+                    <div style="text-align: center; margin: 8px 0;">
+                        <div>غنی‌سازی</div>
+                        <div style="font-size: 1.8em; color: #ff0000;">۸۵٪</div>
                     </div>
                     
-                    <div style="border-top: 1px solid #ff0000; padding-top: 15px; text-align: center;">
-                        <div>ناظر هسته‌ای:</div>
-                        <div style="font-size: 1.5em; color: #ff0000;">آقای امیری</div>
+                    <div style="text-align: center;">
+                        <div>ناظر: آقای امیری</div>
                     </div>
                 </div>
 
-                <div class="danger-text" style="margin-top: 15px;">⚠️ این افراد در لیست ترور هستند ⚠️</div>
+                <div class="danger-text" style="font-size: 0.9em;">⚠️ در معرض ترور ⚠️</div>
             `;
         }
 
         // نمایش درآمد مدرسه
         function showSchoolIncome() {
             document.getElementById('contentPanel').innerHTML = `
-                <div class="panel-title" style="margin-bottom: 15px;">💵 درآمد مدرسه فضیلت</div>
+                <div class="panel-title" style="margin-bottom: 10px;">💵 درآمد مدرسه</div>
                 
                 <div class="income-box">
-                    <div class="income-title">💰 درآمد امسال</div>
+                    <div style="font-size: 0.9em;">💰 درآمد امسال</div>
                     <div class="income-number" id="incomeDisplay">${schoolIncome.toLocaleString()} تومان</div>
                     
                     <div class="currency-toggle">
@@ -1212,37 +1035,34 @@
                         <button class="currency-btn" onclick="toggleCurrency('dollar')" id="dollarBtn">دلار</button>
                     </div>
                     
-                    <div class="income-title" style="margin-top: 20px;">💳 موجودی حساب</div>
+                    <div style="font-size: 0.9em; margin-top: 10px;">💳 موجودی</div>
                     <div class="balance-number" id="balanceDisplay">${schoolBalance.toLocaleString()} تومان</div>
                     
-                    <div class="income-source">
-                        ⚠️ منبع درآمد: کندن پول توسط امیری از والدین ⚠️
-                    </div>
-                    
-                    <div style="margin-top: 20px; color: #ffd700;">
-                        📊 این آمار هر ثانیه آپدیت میشه
+                    <div class="danger-text" style="margin-top: 10px; padding: 8px; background: rgba(255,0,0,0.2); border-radius: 6px;">
+                        ⚠️ کندن پول توسط امیری از والدین ⚠️
                     </div>
                 </div>
             `;
             
-            // شروع آپدیت لحظه‌ای
             startIncomeUpdate();
         }
 
         function toggleCurrency(type) {
             if(type === 'dollar') {
                 showDollar = true;
-                document.getElementById('tomanBtn').classList.remove('active');
-                document.getElementById('dollarBtn').classList.add('active');
+                document.getElementById('tomanBtn')?.classList.remove('active');
+                document.getElementById('dollarBtn')?.classList.add('active');
             } else {
                 showDollar = false;
-                document.getElementById('dollarBtn').classList.remove('active');
-                document.getElementById('tomanBtn').classList.add('active');
+                document.getElementById('dollarBtn')?.classList.remove('active');
+                document.getElementById('tomanBtn')?.classList.add('active');
             }
         }
 
         function startIncomeUpdate() {
-            setInterval(() => {
+            if(incomeInterval) clearInterval(incomeInterval);
+            
+            incomeInterval = setInterval(() => {
                 if(document.getElementById('incomeDisplay')) {
                     if(showDollar) {
                         let dollarIncome = Math.floor(schoolIncome / 50000);
@@ -1257,7 +1077,7 @@
             }, 100);
         }
 
-        // نمایش تاریخچه سوابق معلمان (با رمز)
+        // نمایش تاریخچه
         function showHistoryPassword() {
             document.getElementById('passwordModal').classList.add('visible');
             passwordNumber = '';
@@ -1282,49 +1102,45 @@
                 document.getElementById('passwordModal').classList.remove('visible');
                 showHistoryContent();
             } else {
-                document.getElementById('passwordMessage').innerHTML = '❌ رمز اشتباه است!';
+                document.getElementById('passwordMessage').innerHTML = '❌ رمز اشتباه!';
                 setTimeout(() => {
                     document.getElementById('passwordMessage').innerHTML = '';
-                }, 2000);
+                }, 1500);
             }
         }
 
         function showHistoryContent() {
             document.getElementById('contentPanel').innerHTML = `
-                <div class="panel-title" style="margin-bottom: 15px;">📜 تاریخچه سوابق معلمان</div>
+                <div class="panel-title" style="margin-bottom: 10px;">📜 تاریخچه معلمان</div>
                 
                 <div class="history-item">
-                    <div class="history-title">👤 شیرکوند - بزرگترین معلم تاریخ</div>
+                    <div class="history-title">👤 شیرکوند</div>
                     <div class="history-text">
-                        سنش معلوم نیست اما بالای ۷۵ سال<br>
-                        مامور حرفه‌ای<br>
-                        بچه ورامینه<br>
+                        سنش بالای ۷۵ سال<br>
+                        مامور حرفه‌ای - بچه ورامینه<br>
                         پول داره ولی هیچکی نمیدونه از کجا<br>
-                        میگن ۵۰ سال پیش تو یه ماموریت特殊 همه رو جا گذاشت<br>
-                        الان معلم شده تا استعدادها رو کشف کنه<br>
-                        شاگرداش همیشه بهترین بودن...
+                        ۵۰ سال پیش تو یه ماموریت特殊 همه رو جا گذاشت<br>
+                        الان معلم شده تا استعدادها رو کشف کنه
                     </div>
                 </div>
                 
                 <div class="history-item">
                     <div class="history-title">👤 زارع</div>
                     <div class="history-text">
-                        زارع قبلاً بازپرس بوده<br>
+                        قبلاً بازپرس بوده<br>
                         ۱۲ تا پرونده قتل بسته<br>
                         بخاطر یه پرونده特殊 معلم شده<br>
-                        هنوزم با پلیس همکاری میکنه<br>
-                        توی مدرسه دنبال بچه‌های باحال میگرده...
+                        هنوزم با پلیس همکاری میکنه
                     </div>
                 </div>
                 
                 <div class="history-item">
                     <div class="history-title">👤 فرنگی</div>
                     <div class="history-text">
-                        فرنگی اصلاً معلم نیست<br>
-                        مامور نفوذیه<br>
-                        از ۵ سال پیش اومده تو مدرسه<br>
+                        اصلاً معلم نیست<br>
+                        مامور نفوذیه - از ۵ سال پیش<br>
                         هر کی میفهمه ناپدید میشه<br>
-                        سه تا از بچه‌ها به خاطر اون رفتن...
+                        سه تا از بچه‌ها به خاطر اون رفتن
                     </div>
                 </div>
             `;
@@ -1333,23 +1149,23 @@
         // نمایش تراکنش‌ها
         function showTransactions() {
             document.getElementById('contentPanel').innerHTML = `
-                <div class="panel-title" style="margin-bottom: 15px;">💰 تراکنش‌های میلیون دلاری</div>
+                <div class="panel-title" style="margin-bottom: 10px;">💰 تراکنش‌ها</div>
                 <div class="transaction-list">
                     <div class="transaction-item">
-                        <span class="transaction-name">زارع</span>
-                        <span class="transaction-amount">۲,۵۰۰,۰۰۰ دلار</span>
+                        <span>زارع</span>
+                        <span>۲,۵۰۰,۰۰۰$</span>
                     </div>
                     <div class="transaction-item">
-                        <span class="transaction-name">شیرکوند</span>
-                        <span class="transaction-amount">۴,۸۰۰,۰۰۰ دلار</span>
+                        <span>شیرکوند</span>
+                        <span>۴,۸۰۰,۰۰۰$</span>
                     </div>
                     <div class="transaction-item">
-                        <span class="transaction-name">زارع</span>
-                        <span class="transaction-amount">۷,۵۰۰,۰۰۰ دلار</span>
+                        <span>زارع</span>
+                        <span>۷,۵۰۰,۰۰۰$</span>
                     </div>
                     <div class="transaction-item">
-                        <span class="transaction-name">شیرکوند</span>
-                        <span class="transaction-amount">۱۰,۰۰۰,۰۰۰ دلار</span>
+                        <span>شیرکوند</span>
+                        <span>۱۰,۰۰۰,۰۰۰$</span>
                     </div>
                 </div>
             `;
@@ -1381,14 +1197,13 @@
             if(hackNumber === '2626') {
                 document.getElementById('hackPhoneModal').classList.remove('visible');
                 document.getElementById('contentPanel').innerHTML = `
-                    <div class="panel-title" style="margin-bottom: 15px;">📱 گوشی شیرکوند</div>
+                    <div class="panel-title" style="margin-bottom: 10px;">📱 گوشی شیرکوند</div>
                     <div class="wifi-box">
-                        <div style="font-size: 2em; margin-bottom: 20px;">✅ هک موفق!</div>
-                        <div>به اطلاعات گوشی دسترسی پیدا کردی</div>
-                        <div style="margin: 20px 0;">📱 شماره: ۰۹۱۲***۴۵۶۷</div>
-                        <div class="danger-text" style="font-size: 1.5em;">💬 آخرین پیام: "من از خدا به تو نزدیک ترم پس بترس"</div>
-                        <div>📍 موقعیت: ورامین، خیابان اصلی</div>
-                        <button class="btn" onclick="goToMainPage()" style="margin-top: 20px; border-color: #00ff00;">🔙 بازگشت</button>
+                        <div style="font-size: 1.5em; margin-bottom: 10px;">✅ هک موفق!</div>
+                        <div style="margin: 10px 0;">📱 ۰۹۱۲***۴۵۶۷</div>
+                        <div class="danger-text" style="font-size: 1.2em;">💬 "من از خدا به تو نزدیک ترم پس بترس"</div>
+                        <div>📍 ورامین</div>
+                        <button class="btn" onclick="goToMainPage()" style="margin-top: 10px;">🔙 بازگشت</button>
                     </div>
                 `;
             } else {
@@ -1414,7 +1229,7 @@
                         }
                     }, 1000);
                 } else {
-                    document.getElementById('hackMessage').innerHTML = '❌ رمز اشتباه است!';
+                    document.getElementById('hackMessage').innerHTML = '❌ رمز اشتباه!';
                     hackNumber = '';
                     document.getElementById('hackPhoneInput').value = '';
                     
@@ -1452,15 +1267,14 @@
 
         function submitWithdraw() {
             if(cardNumber.length === 12) {
-                document.getElementById('withdrawMessage').innerHTML = '✅ برداشت با موفقیت انجام شد!';
+                document.getElementById('withdrawMessage').innerHTML = '✅ موفق!';
                 setTimeout(() => {
                     document.getElementById('withdrawModal').classList.remove('visible');
-                }, 2000);
+                }, 1500);
             } else {
-                document.getElementById('withdrawMessage').innerHTML = '❌ شماره کارت باید ۱۲ رقم باشد';
+                document.getElementById('withdrawMessage').innerHTML = '❌ باید ۱۲ رقم باشه';
             }
         }
     </script>
 </body>
-
 </html>
